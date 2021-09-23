@@ -1,0 +1,5 @@
+- [ ] Make sure app-adjustments.sh doesn't depend on other packages.
+  - Include in this package (and remove from wasta-multidesktop)?:
+    - wl-round-22.png badge (used by slick-greeter and )
+    - zim config file
+    - ePapirus icons
