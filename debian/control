@@ -1,0 +1,15 @@
+Source: wasta-app-adjustments
+Section: utils
+Priority: optional
+Maintainer: Nate Marti <nate_marti@sil.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 4.4.0
+Homepage: https://github.com/wasta-linux/wasta-app-adjustments
+
+Package: wasta-app-adjustments
+Architecture: all
+Depends: gnupg, ${misc:Depends}
+Recommends:
+Description: Wasta-Linux 22.04 App Adjustments
+ .
+ This package should be installed on any machine running Wasta-Linux 22.04
