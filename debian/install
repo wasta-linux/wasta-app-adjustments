@@ -1,1 +1,2 @@
-resources/skel  /etc
+resources/skel/.config/zim  /etc/skel/.config
+resources/skel/.goldendict /etc/skel
