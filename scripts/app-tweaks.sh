@@ -104,9 +104,6 @@ echo
 echo "*** Script Entry: app-tweaks.sh"
 echo
 
-# Setup Diretory for later reference
-DIR=/usr/share/wasta-multidesktop
-
 # if 'auto' parameter passed, run non-interactively
 if [ "$1" == "auto" ];
 then
@@ -114,6 +111,17 @@ then
 else
     AUTO=""
 fi
+
+LOCAL_USERS=""
+for USER_FOLDER in $(ls -1 /home)
+do
+    # if user is in /etc/passwd then it is a 'real user' as opposed to
+    # something like wasta-remastersys
+    if [ "$(grep $USER_FOLDER /etc/passwd)" ];
+    then
+        LOCAL_USERS+="$USER_FOLDER "
+    fi
+done
 
 # ------------------------------------------------------------------------------
 # FIRST: Gnome Application Menu Cleanup
@@ -1230,9 +1238,10 @@ then
     mv /usr/share/slick-greeter/badges/cinnamon.svg /usr/share/slick-greeter/badges/cinnamon2d.svg
 fi
 
-if [ -e /usr/share/slick-greeter/badges ];
+WM=/usr/share/wasta-multidesktop
+if [ -e /usr/share/slick-greeter/badges ] && [ -e ${WM}/resources/wl-round-22.png ];
 then
-    cp $DIR/resources/wl-round-22.png /usr/share/slick-greeter/badges/cinnamon.png
+    cp $WM/resources/wl-round-22.png /usr/share/slick-greeter/badges/cinnamon.png
 fi
 
 # ------------------------------------------------------------------------------
@@ -1647,21 +1656,27 @@ fi
 # ------------------------------------------------------------------------------
 # zim
 # ------------------------------------------------------------------------------
-if [ -x /usr/bin/zim ];
-then
-    # TODO:if no current .config/zim then copy it from /etc/skel
-    # this is needed to enable trayicon plugin by default
-    if ! [ -d /etc/skel/.config/zim ];
+# enable trayicon plugin by default for all users
+for CURRENT_USER in $LOCAL_USERS;
+do
+    CONFIG_NAME="preferences.conf"
+    USER_CONFIG_DIR="/home/$CURRENT_USER/.config/zim"
+    USER_CONFIG_FILE="$USER_CONFIG_DIR/${CONFIG_NAME}"
+    # ensure basic config file exists
+    mkdir -p "/home/${CURRENT_USER}/.config/zim"
+    # copy config file from /etc/skel/.config if it doesn't already exist
+    if [ ! -f "$USER_CONFIG_FILE" ];
     then
-        mkdir -p /etc/skel/.config/zim
-        cp -r $DIR/resources/skel/.config/zim /etc/skel/.config
+       cp "/etc/skel/.config/zim/${CONFIG_NAME}" "$USER_CONFIG_FILE"
     fi
-fi
+
+    # ensure user folder owned by user
+    chown -R "${CURRENT_USER}:${CURRENT_USER}" "$USER_CONFIG_DIR"
+done
 
 # ------------------------------------------------------------------------------
 # Default Application Fixes: ??? better command to do this ???
 # ------------------------------------------------------------------------------
-
 echo
 echo "*** Adjusting default applications"
 echo
