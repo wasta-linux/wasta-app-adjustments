@@ -1,6 +1,6 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Name: wasta-app-adjustments
-Source: https://github.com/wasta-linux/wasta-app-adjustments
+Upstream-Name: wasta-app-tweaks
+Source: https://github.com/wasta-linux/wasta-app-tweaks
 
 Files: *
 Copyright: 2022 Rik Shaw <rikshaw76@gmail.com>

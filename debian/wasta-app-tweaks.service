@@ -1,5 +1,5 @@
 [Unit]
-Description=Wasta desktop app adjustments
+Description=Wasta desktop app tweaks
 # Run after graphical login prompt.
 After=graphical.target
 # Run after console login prompt.
@@ -8,7 +8,7 @@ After=graphical.target
 [Service]
 Type=simple
 RemainAfterExit=yes
-ExecStart=/usr/share/wasta-multidesktop/scripts/app-adjustments.sh
+ExecStart=/usr/share/wasta-app-tweaks/scripts/app-tweaks.sh
 TimeoutStartSec=0
 
 [Install]

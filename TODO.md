@@ -1,5 +1,4 @@
-- [ ] Make sure app-adjustments.sh doesn't depend on other packages.
-  - Include in this package (or wasta-core?) (and remove from wasta-multidesktop)?:
-    - wl-round-22.png badge (used by slick-greeter for Cinnamon and GNOME DEs)
+- [ ] Make sure app-tweaks.sh depends solely on wasta-multidesktop.
+  - Include in this package (and remove from wasta-multidesktop):
     - zim config file
-    - ePapirus icons
+- [ ] Remove app-adjustments from multidesktop

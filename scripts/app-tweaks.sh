@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ==============================================================================
-# wasta-core: app-adjustments.sh
+# app-tweaks.sh
 #
 # 2015-10-25 rik: initial script - pulled from other scripts
 # 2015-11-06 rik: making gdebi default for deb files
@@ -78,7 +78,8 @@
 # 2020-10-20 rik: ePapirus icons: copying 24x24 places icons to 16x16 places
 #   icons so that are colorized rather than dark gray
 # 2020-10-20 rik: adding 16px support to papirus-folders
-# 2021-09-23 ndm: move to own repo for proper systemd service configuration.
+# 2021-09-23 ndm: move to own repo for proper systemd service configuration;
+#   rename to app-tweaks.sh
 #
 # ==============================================================================
 
@@ -100,7 +101,7 @@ fi
 # ------------------------------------------------------------------------------
 
 echo
-echo "*** Script Entry: app-adjustments.sh"
+echo "*** Script Entry: app-tweaks.sh"
 echo
 
 # Setup Diretory for later reference
@@ -687,7 +688,7 @@ fi
 if [ -x /usr/bin/goldendict ];
 then
     # --------------------------------------------------------------------------
-    # Per User Adjustments
+    # Per User Tweaks
     # --------------------------------------------------------------------------
     LOCAL_USERS=""
     for USER_FOLDER in $(ls -1 /home)
@@ -1691,7 +1692,7 @@ sed -i \
 # Finished
 # ------------------------------------------------------------------------------
 echo
-echo "*** Script Exit: app-adjustments.sh"
+echo "*** Script Exit: app-tweaks.sh"
 echo
 
 exit 0
