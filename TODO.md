@@ -1,4 +1,5 @@
-- [ ] Make sure app-tweaks.sh depends solely on wasta-multidesktop.
-  - Include in this package (and remove from wasta-multidesktop):
-    - zim config file
 - [ ] Remove app-adjustments from multidesktop
+- [x] Add Zim stuff to this package
+- [ ] Remove Zim stuff from multidesktop
+- [x] Add goldendict stuff to this package.
+- [ ] Remove goldendict stuff from multidesktop
