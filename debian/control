@@ -8,7 +8,7 @@ Homepage: https://github.com/wasta-linux/wasta-app-tweaks
 
 Package: wasta-app-tweaks
 Architecture: all
-Depends: wasta-multidesktop-focal, ${misc:Depends}
+Depends: wasta-core-focal, ${misc:Depends}
 Recommends:
 Description: Wasta-Linux 22.04 App Tweaks
  .

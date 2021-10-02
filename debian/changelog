@@ -1,3 +1,9 @@
+wasta-app-tweaks (0.1.1) focal; urgency=medium
+
+  * Add wasta-core to depends.
+
+ -- Nate Marti <nate_marti@sil.org>  Sat, 02 Oct 2021 18:23:27 +0100
+
 wasta-app-tweaks (0.1) focal; urgency=medium
 
   * Initial release.
