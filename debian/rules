@@ -10,4 +10,7 @@
 #export DH_VERBOSE=1
 
 %:
-	dh $@ 
+	dh $@
+
+override_dh_installsystemd:
+	dh_installsystemd --no-start
