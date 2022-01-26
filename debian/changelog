@@ -1,3 +1,9 @@
+wasta-app-tweaks (22.04.0.1) jammy; urgency=medium
+
+  * initial jammy release
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Wed, 26 Jan 2022 12:12:38 -0600
+
 wasta-app-tweaks (0.1.2) focal; urgency=medium
 
   * Don't start service at install.

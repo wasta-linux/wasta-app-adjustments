@@ -8,8 +8,9 @@ Homepage: https://github.com/wasta-linux/wasta-app-tweaks
 
 Package: wasta-app-tweaks
 Architecture: all
-Depends: wasta-core-focal
+Depends: wasta-core
 Recommends:
-Description: Wasta-Linux 22.04 App Tweaks
+Description: Wasta-Linux App Tweaks
  .
- This package should be installed on any machine running Wasta-Linux 22.04
+ This package should be installed on any machine running Wasta-Linux. Script
+ is triggered by being placed in /etc/profile.d
