@@ -13,4 +13,4 @@ Recommends:
 Description: Wasta-Linux App Tweaks
  .
  This package should be installed on any machine running Wasta-Linux. Script
- is triggered by being placed in /etc/profile.d
+ is triggered by systemd on launch of display manager (graphical.target)

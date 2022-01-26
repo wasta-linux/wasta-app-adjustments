@@ -1,3 +1,2 @@
-resources/skel/.config/zim  etc/skel/.config
-resources/skel/.goldendict  etc/skel
-profile.d                   etc
+skel                   etc
+wasta-app-tweaks       usr/bin

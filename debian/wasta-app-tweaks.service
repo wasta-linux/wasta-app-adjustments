@@ -8,7 +8,7 @@ After=graphical.target
 [Service]
 Type=simple
 RemainAfterExit=yes
-ExecStart=/usr/share/wasta-app-tweaks/scripts/app-tweaks.sh
+ExecStart=/usr/bin/wasta-app-tweaks
 TimeoutStartSec=0
 
 [Install]
