@@ -1,3 +1,9 @@
+wasta-app-tweaks (0.1.3) focal; urgency=medium
+
+  * adding lintian-override to avoid build warnings
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Wed, 15 Jun 2022 13:31:04 -0500
+
 wasta-app-tweaks (0.1.2) focal; urgency=medium
 
   * Don't start service at install.
