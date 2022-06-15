@@ -1228,20 +1228,19 @@ fi
 # slick-greeter
 # ------------------------------------------------------------------------------
 # setup badges for wl defaults
-if [ -L /usr/share/slick-greeter/badges/cinnmaon2d.svg ];
+
+# historically cinnamon2d was a symlink to cinnamon: but we want cinnamon2d to
+#	NOT symlink to it since we don't want users to think cinnamon2d is a
+#	recommended session (it should only be "fallen back to")
+if [ -L /usr/share/slick-greeter/badges/cinnamon2d.svg ];
 then
     unlink /usr/share/slick-greeter/badges/cinnamon2d.svg
 fi
 
-if [ -e /usr/share/slick-greeter/badges/cinnamon.svg ];
-then
-    mv /usr/share/slick-greeter/badges/cinnamon.svg /usr/share/slick-greeter/badges/cinnamon2d.svg
-fi
-
 WM=/usr/share/wasta-multidesktop
-if [ -e /usr/share/slick-greeter/badges ] && [ -e ${WM}/resources/wl-round-22.png ];
+if [ -e /usr/share/slick-greeter/badges ] && [ -e ${WM}/resources/wl-round-22.svg ];
 then
-    cp $WM/resources/wl-round-22.png /usr/share/slick-greeter/badges/cinnamon.png
+    cp $WM/resources/wl-round-22.svg /usr/share/slick-greeter/badges/cinnamon.svg
 fi
 
 # ------------------------------------------------------------------------------
