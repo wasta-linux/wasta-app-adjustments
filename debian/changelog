@@ -1,3 +1,9 @@
+wasta-app-tweaks (22.04.0.3) jammy; urgency=medium
+
+  * updating comment display name
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Wed, 15 Jun 2022 13:38:26 -0500
+
 wasta-app-tweaks (22.04.0.2) jammy; urgency=medium
 
   * changing back to systemd service: profile.d only runs as user
