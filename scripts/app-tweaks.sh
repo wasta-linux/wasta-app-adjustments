@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ==============================================================================
-# wasta-app-tweaks.sh
+# app-tweaks.sh
 #
 # 2015-10-25 rik: initial script - pulled from other scripts
 # 2015-11-06 rik: making gdebi default for deb files
