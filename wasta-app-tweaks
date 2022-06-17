@@ -80,6 +80,8 @@
 # 2020-10-20 rik: adding 16px support to papirus-folders
 # 2021-09-23 ndm: move to own repo for proper systemd service configuration;
 #   rename to app-tweaks.sh
+# 2022-06-17 rik: update cinnamon launcher defaults to use firefox-esr instead
+#   of firefox (for 22.04)
 #
 # ==============================================================================
 
@@ -516,7 +518,7 @@ then
         # - set default launchers
         # - icon-spacing: 10
         # - note: jq can't do "sed -i" inplace update, so need to re-create file
-        NEW_FILE=$(jq '.["pinned-apps"].default=["firefox.desktop", "nemo.desktop", "libreoffice-writer.desktop", "wasta-backup.desktop", "wasta-resources.desktop"] | .["icon-spacing"].default=10' \
+        NEW_FILE=$(jq '.["pinned-apps"].default=["firefox-esr.desktop", "nemo.desktop", "libreoffice-writer.desktop", "wasta-backup.desktop", "wasta-resources.desktop"] | .["icon-spacing"].default=10' \
             < $JSON_FILE)
         echo "$NEW_FILE" > $JSON_FILE
     fi
@@ -564,7 +566,7 @@ then
     # updates:
     # - set default launchers
     # - note: jq can't do "sed -i" inplace update, so need to re-create file
-    NEW_FILE=$(jq '.["launcherList"].default=["firefox.desktop", "nemo.desktop", "libreoffice-writer.desktop", "wasta-backup.desktop", "wasta-resources.desktop"]' \
+    NEW_FILE=$(jq '.["launcherList"].default=["firefox-esr.desktop", "nemo.desktop", "libreoffice-writer.desktop", "wasta-backup.desktop", "wasta-resources.desktop"]' \
         < $JSON_FILE)
     echo "$NEW_FILE" > $JSON_FILE
 
@@ -1693,7 +1695,7 @@ sed -i \
     -e 's@\(application/x-deb\)=.*@\1=gdebi.desktop@' \
     -e 's@\(application/x-debian-package\)=.*@\1=gdebi.desktop@' \
     -e 's@\(text/xml\)=.*@\1=org.gnome.gedit.desktop@' \
-    -e '$a application/x-extension-htm=firefox.desktop' \
+    -e '$a application/x-extension-htm=firefox-esr.desktop' \
     -e '$a application/x-font-ttf=org.gnome.font-viewer.desktop' \
     -e '$a application/x-shellscript=org.gnome.gedit.desktop' \
     -e '\@application/x-extension-htm=@d' \
