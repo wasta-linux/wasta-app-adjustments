@@ -1,3 +1,9 @@
+wasta-app-tweaks (22.04.0.6) jammy; urgency=medium
+
+  * update cinnamon slick-greeter badges
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Thu, 23 Jun 2022 12:11:05 -0500
+
 wasta-app-tweaks (22.04.0.5) jammy; urgency=medium
 
   * update firefox to firefox-esr for cinnamon panel defaults
