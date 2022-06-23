@@ -1172,7 +1172,7 @@ fi
 WL_BADGE=/usr/share/wasta-cinnamon/wl-22.svg
 if [ -e /usr/share/slick-greeter/badges ] && [ -e ${WL_BADGE} ];
 then
-    cp $WL_BADGE /usr/share/slick-greeter/badges/cinnamon2d.svg
+    cp $WL_BADGE /usr/share/slick-greeter/badges/cinnamon.svg
 fi
 
 # ------------------------------------------------------------------------------
