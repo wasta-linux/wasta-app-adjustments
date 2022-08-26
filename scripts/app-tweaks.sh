@@ -1,86 +1,7 @@
 #!/bin/bash
 
 # ==============================================================================
-# app-tweaks.sh
-#
-# 2015-10-25 rik: initial script - pulled from other scripts
-# 2015-11-06 rik: making gdebi default for deb files
-#   - chromium app launcher processing
-#   - gpaste, gcolor2 icon changes to use others available in Moka icon theme
-# 2015-11-10 rik: ubiquity apt-setup: commenting out replace of sources.list:
-#     we want to just go with what live-cd has, as often minor countries mirror
-#     not very good: instead stick to main repo, user can later change if they
-#     want.
-#   - casper: added fix here instead of in postinst
-# 2015-11-11 rik: removing ubiquity tweak: problem was with PinguyBuilder and
-#     is now fixed in wasta-remastersys
-#   - remove PinguyBuilder processing, add wasta-remastersys processing
-# 2015-11-13 rik: fixing syntax of variables for wasta-remastersys.conf
-# 2015-11-21 rik: updating wasta-remastersys.conf location
-# 2016-04-27 rik: goldendict config updates (for http to https) and comment fix
-#   - artha: removing tweaks (no longer installed in Wasta-Linux by default)
-#   - wasta-remastersys: fixing splash screen background location
-#   - defaults.list syntax corrections (do all at once instead of looping)
-# 2016-05-04 rik: goldendict point to correct hunspell dictionary location
-#   - webbrowser-app: hiding (brought in by unity-tweak-tool)
-#   - meld: changing to 'Utility' so no 'Development' category by default
-# 2016-05-09 rik: reverting gcolor2, gnome-search-tool icons as humanity
-#   doesn't support gpick and catfish, so then would be empty (I had previously
-#   put in these manually into hicolor, but then will prevent install of gpick
-#   or catfish!)
-# 2016-05-10 rik: moving to gcolor3, so taking out gcolor2 icon fix
-# 2016-07-19 rik: adding xfce compatibility
-#  - hiding ubuntu-amazon-default
-#  - classicmenu-indicator: only show in unity
-# 2016-08-22 rik: org.gnome.font-viewer: won't launch in 16.04 unless comment
-#   out DBus line from desktop file.  Fixed for yakkety, not sure if will
-#   backport to xenial.
-# 2016-09-14 rik: adding wesay to "Education" category (removing from "Office")
-# 2016-09-30 rik: removing chromium-app-launcher customization: Google has
-#   deprecated it.
-# 2016-10-07 rik: ubiquity: set to not show if found
-# 2017-03-15 rik: simple-scan set to launch with XDG_CURRENT_DESKTOP=Unity
-# 2017-11-29 rik: initial bionic release
-# 2018-01-19 rik: shortening wasta-remastersys CUSTOMISO label
-# 2018-03-02 rik: setting wasta-remastersys SLIDESHOW variable
-# 2018-03-26 rik: hiding apps from main menu:
-#   - chmsee, xchm
-#   - flash-player-properties
-#   - htop
-#   - uxterm, xterm
-# 2018-04-03 rik: hiding openjdk-9-policytool
-#   - hiding org.gnome.font-viewer and org.gnome.FontViewer only if
-#   org.gnome.FontManager is found
-# 2018-05-23 rik: shorten GIMP name, capitalize bookletimposer
-#   - correcting Arc scrollbar adjustment
-# 2018-08-31 rik: removing wasta-remastersys.conf adjustments: only want as
-#   part of wasta-core so not reset each login.
-# 2018-09-03 rik: For 18.04 goldendict (and maybe other qt5 apps) need launched
-#   with 'dbus-launch' prepended to the 'Exec=' statement in order for the
-#   appindicator system tray icon to show
-# 2019-01-08 rik: disabling wasta-ibus script for now since there have been some
-#     issues with ibus user settings getting corrupted.
-#   - adding items to XFCE Settings Manager
-# 2019-01-23 rik: hiding texdoctk (installed by Paratext)
-# 2019-01-30 rik: skypeforlinux - appindicator compatiblity by setting desktop
-#   to "Unity"
-# 2019-02-06 rik: if wasta-xfce found add XFCE to nemo-autostart
-#   - gnome-online-accounts: add to xfce settings (prefer cinnamon over gnome)
-# 2019-02-23 rik: cinnamon applet updates for cinnamon 4.0
-# 2019-03-16 rik: xfce4-terminal: only show in XFCE, hide preferences app
-# 2019-03-29 rik: add wasta-resources goldendict path for all users
-# 2019-08-23 rik: cinnamon system settings: rename ibus to "IBus Keyboards" and
-#   add "Keyman Keyboards"
-#   - replicate arc-themes adjustments to arc-solid themes
-# 2020-01-24 rik: re-enable wasta-ibus script (it now stops and restarts ibus
-#   if it is active.
-# 2020-09-02 rik: update ibus-setup desktop file name for focal
-# 2020-10-20 rik: ePapirus icons: copying 24x24 places icons to 16x16 places
-#   icons so that are colorized rather than dark gray
-# 2020-10-20 rik: adding 16px support to papirus-folders
-# 2021-09-23 ndm: move to own repo for proper systemd service configuration;
-#   rename to app-tweaks.sh
-#
+# app-tweaks.ss
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
@@ -1690,13 +1611,16 @@ sed -i \
     -e 's@\(audio.*\)=.*@\1=vlc.desktop@' \
     -e 's@\(video.*\)=.*@\1=vlc.desktop@' \
     -e 's@totem.desktop@vlc.desktop@' \
+    -e 's@=org.gnome.Totem.desktop@=vlc.desktop@' \
     -e 's@\(text/plain\)=.*@\1=org.gnome.gedit.desktop@' \
     -e 's@\(application/x-deb\)=.*@\1=gdebi.desktop@' \
     -e 's@\(application/x-debian-package\)=.*@\1=gdebi.desktop@' \
     -e 's@\(text/xml\)=.*@\1=org.gnome.gedit.desktop@' \
+    -e '$a image/webp=org.gnome.eog.desktop' \
     -e '$a application/x-extension-htm=firefox.desktop' \
     -e '$a application/x-font-ttf=org.gnome.font-viewer.desktop' \
     -e '$a application/x-shellscript=org.gnome.gedit.desktop' \
+    -e '\@image/webp=@d' \
     -e '\@application/x-extension-htm=@d' \
     -e '\@application/x-font-ttf=@d' \
     -e '\@application/x-shellscript=@d' \
