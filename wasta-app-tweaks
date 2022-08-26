@@ -27,7 +27,7 @@ fi
 # ------------------------------------------------------------------------------
 
 echo
-echo "*** Script Entry: app-tweaks.sh"
+echo "*** Script Entry: wasta-app-tweaks"
 echo
 
 # if 'auto' parameter passed, run non-interactively
@@ -688,17 +688,19 @@ then
 
     # fix comment (revert default, set for [en] and [fr])
     desktop-file-edit --set-comment="Dictionary / Thesaurus tool" \
-        /usr/share/applications/goldendict.desktop
+        /usr/share/applications/org.goldendict.GoldenDict.desktop
     desktop-file-edit --set-key="Comment[en]" --set-value="Dictionary / Thesaurus tool" \
-        /usr/share/applications/goldendict.desktop
+        /usr/share/applications/org.goldendict.GoldenDict.desktop
     desktop-file-edit --set-key="Comment[fr]" --set-value="Outil de dictionnaire" \
-        /usr/share/applications/goldendict.desktop
+        /usr/share/applications/org.goldendict.GoldenDict.desktop
 
     # 18.04: goldendict (qt5) plus cinnamon plus app indicator will not show
     # the tray icon. Need to add dbus-launch to the launcher and then it will
     # show.  See: https://github.com/linuxmint/Cinnamon/issues/6143
-    sed -i -e 's@^Exec=goldendict@Exec=dbus-launch goldendict@' \
-        /usr/share/applications/goldendict.desktop
+    #sed -i -e 's@^Exec=goldendict@Exec=dbus-launch goldendict@' \
+    #    /usr/share/applications/goldendict.desktop
+    #
+    # 20.04+: no longer needed
 fi
 
 # ------------------------------------------------------------------------------
@@ -1642,7 +1644,7 @@ sed -i \
 # Finished
 # ------------------------------------------------------------------------------
 echo
-echo "*** Script Exit: app-tweaks.sh"
+echo "*** Script Exit: wasta-app-tweaks"
 echo
 
 exit 0
