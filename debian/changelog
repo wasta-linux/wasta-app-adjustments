@@ -1,3 +1,9 @@
+wasta-app-tweaks (22.04.1.0) jammy; urgency=medium
+
+  * add webp, change htm to firefox-esr.desktop
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Fri, 26 Aug 2022 09:34:24 -0500
+
 wasta-app-tweaks (22.04.0.7) jammy; urgency=medium
 
   * correct cinnamon slick-greeter replacement

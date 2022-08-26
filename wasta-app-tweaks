@@ -1620,14 +1620,18 @@ echo
 sed -i \
     -e 's@\(audio.*\)=.*@\1=vlc.desktop@' \
     -e 's@\(video.*\)=.*@\1=vlc.desktop@' \
-    -e 's@totem.desktop@vlc.desktop@' \
+    -e 's@=totem.desktop@=vlc.desktop@' \
+    -e 's@=org.gnome.Totem.desktop@=vlc.desktop@' \
+    -e 's@=firefox.desktop@=firefox-esr.desktop@' \
     -e 's@\(text/plain\)=.*@\1=org.gnome.gedit.desktop@' \
+    -e 's@\(text/xml\)=.*@\1=org.gnome.gedit.desktop@' \
     -e 's@\(application/x-deb\)=.*@\1=gdebi.desktop@' \
     -e 's@\(application/x-debian-package\)=.*@\1=gdebi.desktop@' \
-    -e 's@\(text/xml\)=.*@\1=org.gnome.gedit.desktop@' \
+    -e '$a image/webp=org.gnome.eog.desktop' \
     -e '$a application/x-extension-htm=firefox-esr.desktop' \
     -e '$a application/x-font-ttf=org.gnome.font-viewer.desktop' \
     -e '$a application/x-shellscript=org.gnome.gedit.desktop' \
+    -e '\@image/webp=@d' \
     -e '\@application/x-extension-htm=@d' \
     -e '\@application/x-font-ttf=@d' \
     -e '\@application/x-shellscript=@d' \
