@@ -1,3 +1,10 @@
+wasta-app-tweaks (22.04.1.2) jammy; urgency=medium
+
+  * correcting how user commands run to not launch full user login sessions
+    Now correctly using "sudo --user=<user>" instead of "su -l <user>"
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Thu, 16 Feb 2023 11:50:33 -0600
+
 wasta-app-tweaks (22.04.1.1) jammy; urgency=medium
 
   * correcting goldendict desktop filename
