@@ -1,3 +1,15 @@
+wasta-app-tweaks (24.04.0.2) noble; urgency=medium
+
+  * add "redundant session disable" logic
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Mon, 12 Aug 2024 17:05:43 -0500
+
+wasta-app-tweaks (24.04.0.1) noble; urgency=medium
+
+  * bumping version for noble
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Mon, 27 May 2024 12:04:00 -0500
+
 wasta-app-tweaks (22.04.1.2) jammy; urgency=medium
 
   * correcting how user commands run to not launch full user login sessions

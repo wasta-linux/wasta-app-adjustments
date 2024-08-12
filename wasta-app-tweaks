@@ -1578,6 +1578,26 @@ then
 fi
 
 # ------------------------------------------------------------------------------
+# xsessions / wayland-sessions: Hide redundant desktop sessions at login
+# ------------------------------------------------------------------------------
+redundant_sessions=(
+    /usr/share/xsessions/cinnamon2d.desktop
+    /usr/share/xsessions/cinnamon-wayland.desktop
+    /usr/share/xsessions/ubuntu.desktop
+    /usr/share/xsessions/wasta-gnome-xorg.desktop
+    /usr/share/wayland-sessions/ubuntu-wayland.desktop
+    /usr/share/wayland-sessions/wasta-gnome.desktop
+)
+for session in "${redundant_sessions[@]}"; do
+    if [[ -e $session ]]; then
+        echo
+        echo "*** disabling session: $session"
+        echo
+        mv ${session}{,.disabled}
+    fi
+done
+
+# ------------------------------------------------------------------------------
 # zim
 # ------------------------------------------------------------------------------
 if [ -x /usr/bin/zim ];
@@ -1631,7 +1651,6 @@ sed -i \
     -e '\@application/x-extension-htm=@d' \
     -e '\@application/x-font-ttf=@d' \
     -e '\@application/x-shellscript=@d' \
-    /etc/gnome/defaults.list \
     /usr/share/applications/defaults.list
 
 # ------------------------------------------------------------------------------

@@ -11,6 +11,5 @@ Architecture: all
 Depends: wasta-core
 Recommends:
 Description: Wasta-Linux App Tweaks
- .
  This package should be installed on any machine running Wasta-Linux. Script
  is triggered by systemd on launch of display manager (graphical.target)
