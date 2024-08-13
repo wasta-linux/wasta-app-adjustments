@@ -1582,9 +1582,9 @@ fi
 # ------------------------------------------------------------------------------
 redundant_sessions=(
     /usr/share/xsessions/cinnamon2d.desktop
-    /usr/share/xsessions/cinnamon-wayland.desktop
     /usr/share/xsessions/ubuntu.desktop
     /usr/share/xsessions/wasta-gnome-xorg.desktop
+    /usr/share/wayland-sessions/cinnamon-wayland.desktop
     /usr/share/wayland-sessions/ubuntu-wayland.desktop
     /usr/share/wayland-sessions/wasta-gnome.desktop
 )
