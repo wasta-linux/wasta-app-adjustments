@@ -51,32 +51,6 @@ do
 done
 
 # ------------------------------------------------------------------------------
-# FIRST: Gnome Application Menu Cleanup
-# ------------------------------------------------------------------------------
-# 2017-11-29 rik: **** NEEDED FOR BIONIC? ****
-# backup gnome-applications.menu first (don't do time check: always static original to keep
-# if ! [ -e /etc/xdg/menus/gnome-applications.menu.save ];
-# then
-#     cp /etc/xdg/menus/gnome-applications.menu \
-#        /etc/xdg/menus/gnome-applications.menu.save
-# fi
-
-# Delete 'Sundry' Category:
-#   items here are duplicated in Accessories or System Tools so clean up to
-#   just use those 2 categories: why do we want another category??
-# Keeping for reference in case need to modify xml in the future:
-#       xmlstarlet ed --inplace --delete '/Menu/Menu[Name="Sundry"]' \
-#           /etc/xdg/menus/gnome-applications.menu
-
-# get rid of gnome-applications.menu hard-coded category settings
-#   (let desktops do that!!!)
-# sed -i -e "\@<Filename>@d" /etc/xdg/menus/gnome-applications.menu
-
-# ------------------------------------------------------------------------------
-# SECOND: Clean up individual applications that are in bad places
-# ------------------------------------------------------------------------------
-
-# ------------------------------------------------------------------------------
 # *-app-builder
 # ------------------------------------------------------------------------------
 # change to "Education" ("Accessories"): default is "Development"
@@ -783,6 +757,13 @@ then
         /usr/share/applications/gnome-online-accounts-panel.desktop
 fi
 
+DESKTOP_FILE="/usr/share/applications/gnome-online-accounts-gtk.desktop"
+if [ -e "$DESKTOP_FILE" ];
+then
+    # No category set so shows in "other" category by default: add to "internet"
+    desktop-file-edit --add-category=Network "$DESKTOP_FILE"
+fi
+
 # ------------------------------------------------------------------------------
 # gnome-power-statistics
 # ------------------------------------------------------------------------------
@@ -886,17 +867,6 @@ then
 fi
 
 # ------------------------------------------------------------------------------
-# input-method
-# ------------------------------------------------------------------------------
-# ****BIONIC NOT disabling for now.. want to have way that user won't need ibus
-# hide if found (we use ibus as default input method)
-#if [ -e /usr/share/applications/im-config.desktop ];
-#then
-#    desktop-file-edit --set-key=NoDisplay --set-value=true \
-#        /usr/share/applications/im-config.desktop
-#fi
-
-# ------------------------------------------------------------------------------
 # libreoffice-math
 # ------------------------------------------------------------------------------
 # remove from 'science and education' to reduce number of categories
@@ -914,13 +884,13 @@ fi
 # ------------------------------------------------------------------------------
 # change to "Utility" ("Accessories"): default is "Development" (only item
 #   in that category, so we are trying to not have "Programming" by default)
-if [ -e /usr/share/applications/org.gnome.meld.desktop ];
+if [ -e /usr/share/applications/org.gnome.Meld.desktop ];
 then
     desktop-file-edit --add-category=Utility \
-        /usr/share/applications/org.gnome.meld.desktop
+        /usr/share/applications/org.gnome.Meld.desktop
 
     desktop-file-edit --remove-category=Development \
-        /usr/share/applications/org.gnome.meld.desktop
+        /usr/share/applications/org.gnome.Meld.desktop
 fi
 
 # ------------------------------------------------------------------------------
@@ -943,8 +913,6 @@ fi
 # ------------------------------------------------------------------------------
 # modem-manager-gui
 # ------------------------------------------------------------------------------
-# change "Categories" to "Utility" ("Accessories"): default is "System
-
 if [ -e /usr/share/applications/modem-manager-gui.desktop ];
 then
     desktop-file-edit --add-category=Network \
@@ -1596,6 +1564,19 @@ for session in "${redundant_sessions[@]}"; do
         mv ${session}{,.disabled}
     fi
 done
+
+# ------------------------------------------------------------------------------
+# yad-icon-browser
+# ------------------------------------------------------------------------------
+# change to "Utility" ("Accessories"): default is "Development" (only item
+#   in that category, so we are trying to not have "Programming" by default)
+DESKTOP_FILE="/usr/share/applications/yad-icon-browser.desktop"
+if [ -e "$DESKTOP_FILE" ];
+then
+    desktop-file-edit --add-category=Utility "$DESKTOP_FILE"
+
+    desktop-file-edit --remove-category=Development "$DESKTOP_FILE"
+fi
 
 # ------------------------------------------------------------------------------
 # zim

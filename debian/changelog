@@ -1,3 +1,9 @@
+wasta-app-tweaks (24.04.0.3) noble; urgency=medium
+
+  * category cleanup for meld, yad-icon-browser, gnome-online-accounts-gtk
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Fri, 16 Aug 2024 12:16:33 -0500
+
 wasta-app-tweaks (24.04.0.2) noble; urgency=medium
 
   * add "redundant session disable" logic
